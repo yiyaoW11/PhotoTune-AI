@@ -114,6 +114,22 @@ Sorted by F1 (descending):
  
 Rows are true moods; columns are predicted moods. Bright cells on the diagonal are correct predictions. Off-diagonal cells reveal which moods get confused with which.
 
+### Three tiers of performance
+ 
+The 12 moods cluster naturally into three performance bands:
+ 
+**Tier 1: Solved (F1 ≥ 0.80) — 4 moods**
+`edgy_cool`, `moody_dark`, `adventurous`, `energetic_party`. These all share one property: **visually distinctive features that CLIP can latch onto**. Moody photos are literally dark. Adventurous photos show mountains and dramatic landscapes. Edgy photos have urban grit, leather, and graffiti. Party photos have crowds with stage lighting. CLIP's training on 400M image-caption pairs makes these features easy to recognize, and our zero-shot prompts align well with how these moods actually look. `edgy_cool` achieved a perfect 1.000 across all metrics. `moody_dark` and `adventurous` both hit 100% recall — every photo in those categories was correctly identified.
+ 
+**Tier 2: Workable (F1 0.60–0.80) — 4 moods**
+`cozy_intimate`, `chill_relaxed`, `nostalgic`, `melancholic`. These work reasonably but have specific weaknesses. `nostalgic` has perfect precision (1.000) but only 50% recall — when CLIP says "nostalgic," it's always right, but it misses half of all nostalgic photos, predicting `chill_relaxed`, `happy_upbeat`, or `romantic_dreamy` instead. This means the prompt is too narrow.
+ 
+**Tier 3: Struggling (F1 < 0.60) — 4 moods**
+`ethereal`, `romantic_dreamy`, `happy_upbeat`, `fun_playful`. These are where the system needs the most work. Notably, they're all "subjective" mood categories.
+
+
+
+
 ## 🛠️ Tech stack
 
 - **Python 3.10+**
