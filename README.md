@@ -52,6 +52,27 @@ PhotoTune chains four AI / API components into one pipeline:
 Both BLIP and CLIP are pre-trained transformer-based neural networks — no training data needed. CLIP's zero-shot classification does the heavy lifting: by writing 12 descriptive sentences like *"a dreamy romantic photo with a soft aesthetic,"* we can categorize any photo into a mood without ever training a custom model.
 
 ---
+# Evaluation
+ 
+A quantitative evaluation of PhotoTune's mood classification accuracy on a test set of Unsplash photos. 
+ 
+---
+ 
+## TL;DR
+ 
+| Metric | Score |
+|--------|------:|
+| **Top-1 accuracy** | **70.8%** |
+| **Top-3 accuracy** | **96.9%** |
+| Random baseline (12 classes) | 8.3% / 25.0% |
+ 
+PhotoTune is **8.5× better than random** on top-1. Top-3 accuracy of 96.9% means the correct mood is almost always among the top predictions — which is why PhotoTune blends songs from the top 2 moods in production rather than committing to one. 
+
+## Methodology
+### Dataset
+ 
+A balanced test set of **96 photos** was collected from Unsplash — 8 photos per mood across all 12 categories. Photos were organized into folders named after their mood (ImageFolder convention), with the folder name serving as the label. Each photo was hand-selected as a clear example of its mood.
+
 
 ## 🛠️ Tech stack
 
