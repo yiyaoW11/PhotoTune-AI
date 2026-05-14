@@ -7,12 +7,7 @@
 
 ## 🌟 What it does
 
-Picking the right song for a photo is harder than it sounds. PhotoTune solves this by *seeing* your photo and matching it to music with the same mood.
-
-Drop in a moody sunset → get dreamy, melancholic tracks.
-Drop in a beach party → get upbeat, energetic ones.
-
-Each suggestion comes with a 30-second preview and a clickable Deezer link.
+Picking the right song for a photo is harder than it sounds. PhotoTune AI solves this problem by *seeing* your photo and matching it to music with the same mood. Each suggestion comes with a 30-second preview and a clickable Deezer link.
 
 ---
 
@@ -157,7 +152,7 @@ The system supports 12 moods out of the box, each mapped to a CLIP-friendly desc
 | melancholic | melancholy, sad, bittersweet |
 | fun_playful | fun, indie pop, feel good |
 
-Want to add new vibes (cottagecore, y2k, dark academia, etc.)? Just edit `moods.py` — no model retraining needed.
+New moods can be added by editing the `moods.py` file
 
 ---
 
