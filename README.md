@@ -68,6 +68,39 @@ A quantitative evaluation of PhotoTune's mood classification accuracy on a test 
  
 PhotoTune is **8.5× better than random** on top-1. Top-3 accuracy of 96.9% means the correct mood is almost always among the top predictions — which is why PhotoTune blends songs from the top 2 moods in production rather than committing to one. 
 
+### Procedure
+ 
+For each photo, PhotoTune's `score_moods()` method produces a ranked list of mood predictions with confidence scores from CLIP. We measured:
+ 
+- **Top-1 accuracy** — does the highest-confidence prediction match the label?
+- **Top-3 accuracy** — does the true mood appear anywhere in the top 3?
+- **Per-mood precision, recall, F1** — standard multi-class classification metrics
+The downstream music retrieval (Last.fm + Deezer) was not evaluated. The bottleneck for recommendation correctness is the mood classification step, and music quality is too subjective to measure without user studies.
+ 
+---
+## Results
+ 
+### Per-mood breakdown
+ 
+![Per-mood metrics](evaluation/results/per_mood_metrics.png)
+ 
+Sorted by F1 (descending):
+ 
+| Rank | Mood | Support | Precision | Recall | F1 |
+|-----:|------|--------:|----------:|-------:|---:|
+| 1 | edgy_cool | 8 | 1.000 | 1.000 | **1.000** |
+| 2 | moody_dark | 8 | 0.889 | 1.000 | **0.941** |
+| 3 | adventurous | 8 | 0.800 | 1.000 | **0.889** |
+| 4 | energetic_party | 8 | 0.778 | 0.875 | **0.824** |
+| 5 | cozy_intimate | 8 | 0.700 | 0.875 | **0.778** |
+| 6 | chill_relaxed | 8 | 0.538 | 0.875 | **0.667** |
+| 6 | nostalgic | 8 | 1.000 | 0.500 | **0.667** |
+| 6 | melancholic | 8 | 0.714 | 0.625 | **0.667** |
+| 9 | ethereal | 8 | 1.000 | 0.375 | **0.545** |
+| 10 | romantic_dreamy | 8 | 0.571 | 0.500 | **0.533** |
+| 11 | happy_upbeat | 8 | 0.455 | 0.625 | **0.526** |
+| 12 | fun_playful | 8 | 0.400 | 0.250 | **0.308** |
+
 ## Methodology
 ### Dataset
  
