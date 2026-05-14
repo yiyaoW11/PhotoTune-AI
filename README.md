@@ -139,6 +139,30 @@ A clear pattern emerges from the F1 ranking: **moods with concrete visual cues o
  
 The gap between concrete and subjective is **43 F1 points** — a really large effect. CLIP excels at recognizing *what's in a photo*; it struggles with *how the photo feels*. This makes intuitive sense as CLIP was trained on image-caption pairs, where captions tend to describe content, not subjective interpretation.
 
+---
+ 
+## Implications for the design
+ 
+The evaluation supports several existing design choices and surfaces specific improvements:
+ 
+**Supports:** 
+- Using **top-2 moods** in production (blending songs from both). With top-3 accuracy at 96.9% but top-1 at 70.8%, the system's "second guess" is almost always right. Committing to only the top prediction would meaningfully hurt the user experience.
+- **Using CLIP zero-shot.** Achieving 70.8% across 12 fine-grained categories with no training data is strong. A custom-trained CNN would need thousands of labeled images to compete, and maintaining that dataset would be ongoing work.
+ 
+**Improvement opportunities:**
+1. **Merge `fun_playful` and `happy_upbeat`** into one category. They're indistinguishable to CLIP, and the merger would lift overall accuracy by ~5 percentage points.
+2. **Rewrite the `ethereal` prompt** to cover more visual variants (auroras, soft pastels, magical landscapes — not just misty scenes).
+3. **Consider whether `nostalgic` is well-defined visually.** It might be better to replace it with a more concrete proxy like `vintage_warm` (warm tones, retro objects).
+4. **Investigate `romantic_dreamy` vs `cozy_intimate` vs `chill_relaxed`.** Three overlapping soft-aesthetic categories may be one too many.
+   
+## Limitations
+Things worth noting:
+1. **Single annotator.** All photos were searched up according to the mood category on Unsplash. Labels were subjective (e.g. Photo labeled `cozy_intimate` might equally be `romantic_dreamy`)
+2. **Small per-class sample size** (8 per mood). Single misclassifications swing F1 by ~10 percentage points, so the ranking near the middle is noisy.
+3. **Unsplash bias.** Test photos came from Unsplash, which skews curated and aesthetic. Real-world Instagram uploads are messier; accuracy on those would likely be lower.
+4. **No recommendation-quality evaluation.** This measures mood prediction only. Whether the *final song recommendations* are actually good remains untested — that would require user feedback (thumbs up/down on suggestions).
+---
+
 
 ## 🛠️ Tech stack
 
