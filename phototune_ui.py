@@ -1,6 +1,5 @@
 """
 PhotoTune Web UI (Deezer edition)
-==================================
 
 Drag-and-drop browser interface on top of phototune.py.
 
@@ -14,9 +13,6 @@ Setup:
 Run:
     python phototune_ui.py
     -> opens at http://localhost:7860
-
-To share with your friend remotely, change app.launch() to
-app.launch(share=True) -- Gradio gives you a public URL that lasts ~72 hours.
 """
 
 import gradio as gr
