@@ -68,6 +68,13 @@ A quantitative evaluation of PhotoTune's mood classification accuracy on a test 
  
 PhotoTune is **8.5× better than random** on top-1. Top-3 accuracy of 96.9% means the correct mood is almost always among the top predictions — which is why PhotoTune blends songs from the top 2 moods in production rather than committing to one. 
 
+--
+
+## Methodology
+### Dataset
+ 
+A balanced test set of **96 photos** was collected from Unsplash — 8 photos per mood across all 12 categories. Photos were organized into folders named after their mood (ImageFolder convention), with the folder name serving as the label. Each photo was hand-selected as a clear example of its mood.
+
 ### Procedure
  
 For each photo, PhotoTune's `score_moods()` method produces a ranked list of mood predictions with confidence scores from CLIP. We measured:
@@ -101,11 +108,11 @@ Sorted by F1 (descending):
 | 11 | happy_upbeat | 0.455 | 0.625 | **0.526** |
 | 12 | fun_playful | 0.400 | 0.250 | **0.308** |
 
-## Methodology
-### Dataset
+### Confusion matrix
  
-A balanced test set of **96 photos** was collected from Unsplash — 8 photos per mood across all 12 categories. Photos were organized into folders named after their mood (ImageFolder convention), with the folder name serving as the label. Each photo was hand-selected as a clear example of its mood.
-
+![Confusion matrix](evaluation/results/confusion_matrix.png)
+ 
+Rows are true moods; columns are predicted moods. Bright cells on the diagonal are correct predictions. Off-diagonal cells reveal which moods get confused with which.
 
 ## 🛠️ Tech stack
 
