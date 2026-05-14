@@ -163,6 +163,16 @@ Things worth noting:
 4. **No recommendation-quality evaluation.** This measures mood prediction only. Whether the *final song recommendations* are actually good remains untested — that would require user feedback (thumbs up/down on suggestions).
 ---
 
+## Future work
+ 
+To push this evaluation further:
+ 
+- **Multi-annotator labeling** with 3+ raters per photo to measure inter-rater agreement
+- **Larger test set** (~300 photos, 25+ per mood) for stable per-mood metrics
+- **Prompt engineering experiments** — rewrite the bottom-4 prompts and re-evaluate
+- **Mood vocabulary refactor** — test the proposed merger of `fun_playful` + `happy_upbeat`
+- **End-to-end evaluation** — log click-through rates on recommended songs to measure the full pipeline, not just classification
+---
 
 ## 🛠️ Tech stack
 
