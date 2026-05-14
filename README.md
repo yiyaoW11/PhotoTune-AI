@@ -86,20 +86,20 @@ The downstream music retrieval (Last.fm + Deezer) was not evaluated. The bottlen
  
 Sorted by F1 (descending):
  
-| Rank | Mood | Support | Precision | Recall | F1 |
-|-----:|------|--------:|----------:|-------:|---:|
-| 1 | edgy_cool | 8 | 1.000 | 1.000 | **1.000** |
-| 2 | moody_dark | 8 | 0.889 | 1.000 | **0.941** |
-| 3 | adventurous | 8 | 0.800 | 1.000 | **0.889** |
-| 4 | energetic_party | 8 | 0.778 | 0.875 | **0.824** |
-| 5 | cozy_intimate | 8 | 0.700 | 0.875 | **0.778** |
-| 6 | chill_relaxed | 8 | 0.538 | 0.875 | **0.667** |
-| 6 | nostalgic | 8 | 1.000 | 0.500 | **0.667** |
-| 6 | melancholic | 8 | 0.714 | 0.625 | **0.667** |
-| 9 | ethereal | 8 | 1.000 | 0.375 | **0.545** |
-| 10 | romantic_dreamy | 8 | 0.571 | 0.500 | **0.533** |
-| 11 | happy_upbeat | 8 | 0.455 | 0.625 | **0.526** |
-| 12 | fun_playful | 8 | 0.400 | 0.250 | **0.308** |
+| Rank | Mood | Precision | Recall | F1 |
+|-----:|------|----------:|-------:|---:|
+| 1 | edgy_cool | 1.000 | 1.000 | **1.000** |
+| 2 | moody_dark | 0.889 | 1.000 | **0.941** |
+| 3 | adventurous | 0.800 | 1.000 | **0.889** |
+| 4 | energetic_party | 0.778 | 0.875 | **0.824** |
+| 5 | cozy_intimate | 0.700 | 0.875 | **0.778** |
+| 6 | chill_relaxed | 0.538 | 0.875 | **0.667** |
+| 6 | nostalgic | 1.000 | 0.500 | **0.667** |
+| 6 | melancholic | 0.714 | 0.625 | **0.667** |
+| 9 | ethereal | 1.000 | 0.375 | **0.545** |
+| 10 | romantic_dreamy | 0.571 | 0.500 | **0.533** |
+| 11 | happy_upbeat | 0.455 | 0.625 | **0.526** |
+| 12 | fun_playful | 0.400 | 0.250 | **0.308** |
 
 ## Methodology
 ### Dataset
