@@ -127,7 +127,17 @@ The 12 moods cluster naturally into three performance bands:
 **Tier 3: Struggling (F1 < 0.60) — 4 moods**
 `ethereal`, `romantic_dreamy`, `happy_upbeat`, `fun_playful`. These are where the system needs the most work. Notably, they're all "subjective" mood categories.
 
-
+### The concrete vs. subjective divide
+ 
+A clear pattern emerges from the F1 ranking: **moods with concrete visual cues outperform moods defined by feelings**.
+ 
+| Type | Examples | Avg F1 |
+|------|----------|-------:|
+| Concrete visual cues | edgy_cool, moody_dark, adventurous, energetic_party | **0.913** |
+| Mixed | cozy_intimate, chill_relaxed, nostalgic, melancholic | **0.695** |
+| Subjective / emotional | ethereal, romantic_dreamy, happy_upbeat, fun_playful | **0.478** |
+ 
+The gap between concrete and subjective is **43 F1 points** — a really large effect. CLIP excels at recognizing *what's in a photo*; it struggles with *how the photo feels*. This makes intuitive sense as CLIP was trained on image-caption pairs, where captions tend to describe content, not subjective interpretation.
 
 
 ## 🛠️ Tech stack
